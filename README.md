@@ -136,7 +136,7 @@ A API estará rodando em http://localhost:3000 🚀
 
 ## ✅ Testando a API
 ###📌 Documentação Swagger e Postman
-Acesse http://localhost:3000/api no Swagger ou https://documenter.getpostman.com/view/41666076/2sAYX2Liny para visualizar e testar os endpoints.
+Acesse http://localhost:3000/api no Swagger ou https://documenter.getpostman.com/view/41666076/2sAYX2Liny no Postman para visualizar e testar os endpoints.
 
 ###📌 Testes Automatizados
 ````
