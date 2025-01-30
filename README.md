@@ -135,8 +135,8 @@ npm run start:prod
 A API estará rodando em http://localhost:3000 🚀
 
 ## ✅ Testando a API
-###📌 Documentação Swagger
-Acesse http://localhost:3000/api para visualizar e testar os endpoints.
+###📌 Documentação Swagger e Postman
+Acesse http://localhost:3000/api no Swagger ou https://documenter.getpostman.com/view/41666076/2sAYX2Liny para visualizar e testar os endpoints.
 
 ###📌 Testes Automatizados
 ````
