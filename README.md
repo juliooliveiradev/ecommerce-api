@@ -1,99 +1,158 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🛒 E-commerce API
+API de e-commerce desenvolvida com NestJS, PostgreSQL e BullMQ (Redis) para processamento de pedidos assíncronos.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## 📌 Descrição do Projeto
+Este projeto é uma API REST para gerenciamento de pedidos em um e-commerce. Ele permite que os usuários criem pedidos, consultem pedidos por status ou intervalo de data e conta com um sistema de processamento assíncrono de pedidos, utilizando filas para melhorar a escalabilidade e desempenho.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+A API foi construída seguindo os princípios de Clean Architecture, garantindo modularidade e separação de responsabilidades, além de boas práticas como tratamento de erros, validação de dados e testes automatizados.
 
-## Description
+## 🔹 Funcionalidades do Projeto
+### 1️⃣ Criação de Pedidos
+Os usuários podem criar novos pedidos, informando dados como:
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Itens do pedido
+- Quantidade
+- Preço
+- Status inicial
+  
+🚀 Tecnologia utilizada: NestJS + PostgreSQL + BullMQ (fila de processamento de pedidos)
 
-## Project setup
+### 2️⃣ Consulta de Pedidos
 
-```bash
-$ npm install
-```
+Os pedidos podem ser consultados de duas formas:
 
-## Compile and run the project
+📌 Por Status → Filtra os pedidos pelo status atual (Pendente, Processando, Concluído, Cancelado).
 
-```bash
-# development
-$ npm run start
+📌 Por Intervalo de Datas → Filtra os pedidos criados entre uma data inicial e final.
 
-# watch mode
-$ npm run start:dev
+🚀 Tecnologia utilizada: TypeORM (Banco de Dados) + Query Parameters
 
-# production mode
-$ npm run start:prod
-```
+### 3️⃣ Processamento Assíncrono de Pedidos
+Após a criação de um pedido, ele entra em uma fila de processamento assíncrono, utilizando o BullMQ e Redis.
 
-## Run tests
+💡 Como funciona?
 
-```bash
-# unit tests
-$ npm run test
+1. O pedido é criado e enviado para uma fila no Redis.
+2. Um worker processa o pedido de forma assíncrona.
+3. Quando o pedido é concluído, seu status é atualizado no banco de dados.
+   
+✅ Vantagens:
+✔️ Evita travamentos no servidor principal.
+✔️ Permite processar múltiplos pedidos ao mesmo tempo.
+✔️ Melhora a escalabilidade do sistema.
 
-# e2e tests
-$ npm run test:e2e
+🚀 Tecnologia utilizada: BullMQ (Redis) + NestJS Background Jobs
 
-# test coverage
-$ npm run test:cov
-```
+### 4️⃣ Filas e Redis
+A API utiliza BullMQ para gerenciar filas de pedidos.
 
-## Deployment
+📌 O Redis é responsável por armazenar temporariamente os pedidos enquanto aguardam o processamento.
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+🚀 Tecnologia utilizada: BullMQ (Gerenciamento de filas) + Redis (Armazenamento temporário)
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### 5️⃣ Autenticação e Segurança (Futuras Implementações)
+Atualmente, a API ainda não possui autenticação, mas está preparada para integração com JWT ou OAuth para garantir segurança no acesso aos endpoints.
 
-```bash
-$ npm install -g mau
-$ mau deploy
-```
+🚀 Tecnologia planejada: JWT + Passport.js
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+## 🏗 Arquitetura do Projeto
+O projeto segue os princípios da Clean Architecture, garantindo separação de responsabilidades e código modular.
 
-## Resources
+📂 src/
+├── application/ (Casos de Uso - Regras de Negócio)
+├── domain/ (Entidades e Repositórios)
+├── infra/ (Banco de Dados, Filas, Configurações)
+├── presentation/ (Controllers e DTOs)
+├── config/ (Configuração de Banco de Dados, Redis, BullMQ)
+└── main.ts (Ponto de entrada da aplicação)
 
-Check out a few resources that may come in handy when working with NestJS:
+✅ Vantagens da Arquitetura:
+✔️ Código modular e de fácil manutenção
+✔️ Baixo acoplamento entre os componentes
+✔️ Facilidade para testes automatizados
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## 🚀 Instruções para executar o projeto
+### 1️⃣ Pré-requisitos
+Antes de começar, instale as seguintes dependências no seu sistema:
 
-## Support
+✅ Node.js (versão 18+)
+✅ PostgreSQL (Banco de Dados)
+✅ Redis (Para filas de processamento BullMQ)
+✅ Docker (Opcional, mas recomendado)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### 2️⃣ Configuração do Banco de Dados
+Crie um banco de dados PostgreSQL:
 
-## Stay in touch
+````
+CREATE DATABASE ecommerce;
+````
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+Se estiver usando Docker, suba um contêiner do PostgreSQL e Redis com o seguinte comando:
 
-## License
+````
+docker-compose up -d
+````
+### 3️⃣ Clonar o Repositório
+````
+git clone https://github.com/seu-usuario/ecommerce-api.git
+cd ecommerce-api
+````
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+### 4️⃣ Configurar Variáveis de Ambiente
+Crie um arquivo .env na raiz do projeto e defina as configurações:
+
+````
+# Configuração do Banco de Dados
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=postgres
+DB_PASSWORD=admin
+DB_DATABASE=ecommerce
+
+
+# Configuração do Redis (BullMQ)
+REDIS_HOST=localhost
+REDIS_PORT=6379
+````
+### 5️⃣ Instalar Dependências
+````
+npm install
+````
+### 6️⃣ Rodar Migrations do Banco de Dados
+````
+npm run migration:run
+````
+### 7️⃣ Executar o Servidor
+#### 🔹 Modo Desenvolvimento
+````
+npm run start:dev
+````
+#### 🔹 Modo Produção
+````
+npm run build
+npm run start:prod
+````
+A API estará rodando em http://localhost:3000 🚀
+
+## ✅ Testando a API
+###📌 Documentação Swagger
+Acesse http://localhost:3000/api para visualizar e testar os endpoints.
+
+###📌 Testes Automatizados
+````
+npm run test
+````
+
+##🛠 Tecnologias Utilizadas
+
+✅ NestJS - Framework TypeScript
+✅ TypeORM - ORM para PostgreSQL
+✅ BullMQ - Gerenciamento de Filas com Redis
+✅ Docker - Contêinerização
+✅ Swagger - Documentação da API
+
+##📬 Contato
+👨‍💻 Desenvolvido por Julio Oliveira
+🔗 GitHub: juliooliveiradev
+
+🔥 Boa codificação! 🚀
