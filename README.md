@@ -145,11 +145,11 @@ npm run test
 
 ## 🛠 Tecnologias Utilizadas
 
-✅ NestJS - Framework TypeScript
-✅ TypeORM - ORM para PostgreSQL
-✅ BullMQ - Gerenciamento de Filas com Redis
-✅ Docker - Contêinerização
-✅ Swagger - Documentação da API
+. ✅ NestJS - Framework TypeScript
+. ✅ TypeORM - ORM para PostgreSQL
+. ✅ BullMQ - Gerenciamento de Filas com Redis
+. ✅ Docker - Contêinerização
+. ✅ Swagger - Documentação da API
 
 ## 📬 Contato
 👨‍💻 Desenvolvido por Julio Oliveira
