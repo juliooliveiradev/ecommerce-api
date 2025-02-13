@@ -19,13 +19,13 @@ Os usuários podem criar novos pedidos, informando dados como:
 
 ### 2️⃣ Consulta de Pedidos
 
-Os pedidos podem ser consultados de duas formas:\
+Os pedidos podem ser consultados de duas formas:
 
-📌 Por Status → Filtra os pedidos pelo status atual (Pendente, Processando, Concluído, Cancelado).\
+📌 Por Status → Filtra os pedidos pelo status atual (Pendente, Processando, Concluído, Cancelado).
 
-📌 Por Intervalo de Datas → Filtra os pedidos criados entre uma data inicial e final.\
+📌 Por Intervalo de Datas → Filtra os pedidos criados entre uma data inicial e final.
 
-🚀 Tecnologia utilizada: TypeORM (Banco de Dados) + Query Parameters\
+🚀 Tecnologia utilizada: TypeORM (Banco de Dados) + Query Parameters
 
 ### 3️⃣ Processamento Assíncrono de Pedidos
 Após a criação de um pedido, ele entra em uma fila de processamento assíncrono, utilizando o BullMQ e Redis.
@@ -39,7 +39,7 @@ Após a criação de um pedido, ele entra em uma fila de processamento assíncro
 ✅ Vantagens:\
 ✔️ Evita travamentos no servidor principal.\
 ✔️ Permite processar múltiplos pedidos ao mesmo tempo.\
-✔️ Melhora a escalabilidade do sistema.\
+✔️ Melhora a escalabilidade do sistema.
 
 🚀 Tecnologia utilizada: BullMQ (Redis) + NestJS Background Jobs
 
