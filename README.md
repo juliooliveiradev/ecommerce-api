@@ -59,7 +59,7 @@ Atualmente, a API ainda não possui autenticação, mas está preparada para int
 O projeto segue os princípios da Clean Architecture, garantindo separação de responsabilidades e código modular.
 
 📂 src/
-├── application/ (Casos de Uso - Regras de Negócio)
+├── application/ (Casos de Uso - Regras de Negócio)\
 ├── domain/ (Entidades e Repositórios)
 ├── infra/ (Banco de Dados, Filas, Configurações)
 ├── presentation/ (Controllers e DTOs)
