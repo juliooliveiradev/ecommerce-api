@@ -135,15 +135,15 @@ npm run start:prod
 A API estará rodando em http://localhost:3000 🚀
 
 ## ✅ Testando a API
-###📌 Documentação Swagger e Postman
+### 📌 Documentação Swagger e Postman
 Acesse http://localhost:3000/api no Swagger ou https://documenter.getpostman.com/view/41666076/2sAYX2Liny no Postman para visualizar e testar os endpoints.
 
-###📌 Testes Automatizados
+### 📌 Testes Automatizados
 ````
 npm run test
 ````
 
-##🛠 Tecnologias Utilizadas
+## 🛠 Tecnologias Utilizadas
 
 ✅ NestJS - Framework TypeScript
 ✅ TypeORM - ORM para PostgreSQL
@@ -151,7 +151,7 @@ npm run test
 ✅ Docker - Contêinerização
 ✅ Swagger - Documentação da API
 
-##📬 Contato
+## 📬 Contato
 👨‍💻 Desenvolvido por Julio Oliveira
 🔗 GitHub: juliooliveiradev
 
