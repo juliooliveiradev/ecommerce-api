@@ -75,10 +75,10 @@ O projeto segue os princípios da Clean Architecture, garantindo separação de 
 ### 1️⃣ Pré-requisitos
 Antes de começar, instale as seguintes dependências no seu sistema:
 
-✅ Node.js (versão 18+)
-✅ PostgreSQL (Banco de Dados)
-✅ Redis (Para filas de processamento BullMQ)
-✅ Docker (Opcional, mas recomendado)
+- ✅ Node.js (versão 18+)
+- ✅ PostgreSQL (Banco de Dados)
+- ✅ Redis (Para filas de processamento BullMQ)
+- ✅ Docker (Opcional, mas recomendado)
 
 ### 2️⃣ Configuração do Banco de Dados
 Crie um banco de dados PostgreSQL:
@@ -145,11 +145,11 @@ npm run test
 
 ## 🛠 Tecnologias Utilizadas
 
-. ✅ NestJS - Framework TypeScript
-. ✅ TypeORM - ORM para PostgreSQL
-. ✅ BullMQ - Gerenciamento de Filas com Redis
-. ✅ Docker - Contêinerização
-. ✅ Swagger - Documentação da API
+- ✅ NestJS - Framework TypeScript
+- ✅ TypeORM - ORM para PostgreSQL
+- ✅ BullMQ - Gerenciamento de Filas com Redis
+- ✅ Docker - Contêinerização
+- ✅ Swagger - Documentação da API
 
 ## 📬 Contato
 👨‍💻 Desenvolvido por Julio Oliveira
