@@ -19,13 +19,13 @@ Os usuários podem criar novos pedidos, informando dados como:
 
 ### 2️⃣ Consulta de Pedidos
 
-Os pedidos podem ser consultados de duas formas:
+Os pedidos podem ser consultados de duas formas:\
 
-📌 Por Status → Filtra os pedidos pelo status atual (Pendente, Processando, Concluído, Cancelado).
+📌 Por Status → Filtra os pedidos pelo status atual (Pendente, Processando, Concluído, Cancelado).\
 
-📌 Por Intervalo de Datas → Filtra os pedidos criados entre uma data inicial e final.
+📌 Por Intervalo de Datas → Filtra os pedidos criados entre uma data inicial e final.\
 
-🚀 Tecnologia utilizada: TypeORM (Banco de Dados) + Query Parameters
+🚀 Tecnologia utilizada: TypeORM (Banco de Dados) + Query Parameters\
 
 ### 3️⃣ Processamento Assíncrono de Pedidos
 Após a criação de um pedido, ele entra em uma fila de processamento assíncrono, utilizando o BullMQ e Redis.
@@ -36,10 +36,10 @@ Após a criação de um pedido, ele entra em uma fila de processamento assíncro
 2. Um worker processa o pedido de forma assíncrona.
 3. Quando o pedido é concluído, seu status é atualizado no banco de dados.
    
-✅ Vantagens:
-✔️ Evita travamentos no servidor principal.
-✔️ Permite processar múltiplos pedidos ao mesmo tempo.
-✔️ Melhora a escalabilidade do sistema.
+✅ Vantagens:\
+✔️ Evita travamentos no servidor principal.\
+✔️ Permite processar múltiplos pedidos ao mesmo tempo.\
+✔️ Melhora a escalabilidade do sistema.\
 
 🚀 Tecnologia utilizada: BullMQ (Redis) + NestJS Background Jobs
 
@@ -58,18 +58,18 @@ Atualmente, a API ainda não possui autenticação, mas está preparada para int
 ## 🏗 Arquitetura do Projeto
 O projeto segue os princípios da Clean Architecture, garantindo separação de responsabilidades e código modular.
 
-📂 src/
+📂 src/\
 ├── application/ (Casos de Uso - Regras de Negócio)\
-├── domain/ (Entidades e Repositórios)
-├── infra/ (Banco de Dados, Filas, Configurações)
-├── presentation/ (Controllers e DTOs)
-├── config/ (Configuração de Banco de Dados, Redis, BullMQ)
-└── main.ts (Ponto de entrada da aplicação)
+├── domain/ (Entidades e Repositórios)\
+├── infra/ (Banco de Dados, Filas, Configurações)\
+├── presentation/ (Controllers e DTOs)\
+├── config/ (Configuração de Banco de Dados, Redis, BullMQ)\
+└── main.ts (Ponto de entrada da aplicação)\
 
-✅ Vantagens da Arquitetura:
-✔️ Código modular e de fácil manutenção
-✔️ Baixo acoplamento entre os componentes
-✔️ Facilidade para testes automatizados
+✅ Vantagens da Arquitetura:\
+✔️ Código modular e de fácil manutenção\
+✔️ Baixo acoplamento entre os componentes\
+✔️ Facilidade para testes automatizados\
 
 ## 🚀 Instruções para executar o projeto
 ### 1️⃣ Pré-requisitos
